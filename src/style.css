@@ -1,0 +1,932 @@
+/* Is AI a bubble?
+   Black, white and photographs. Nothing else.
+
+   Contents
+   1. Tokens          5. Hero                 9. Money circle
+   2. Base            6. Chapter openers     10. Charts, gauge, figures
+   3. Masthead        7. Reading             11. The pop
+   4. Stage, plates   8. History sequence    12. After, sources
+                                             13. Small screens, fallbacks
+*/
+
+/* ---------- 1. Tokens ---------- */
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --ink: #e4e4e4;        /* running text on black */
+  --ash: #a0a0a0;        /* secondary text on black */
+  --graphite: #878787;   /* captions, axes */
+  --seam: #2b2b2b;       /* the few rules on black */
+
+  --sans: 'Archivo Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'Newsreader Variable', 'Iowan Old Style', 'Times New Roman', serif;
+
+  --margin: clamp(1.25rem, 5vw, 6rem);
+  --gutter: clamp(0.75rem, 1.6vw, 1.75rem);
+  --measure: 34rem;
+
+  /* Type scale: 1.25 steps from an 18 to 20 px text size. */
+  --text: clamp(1.125rem, 0.98rem + 0.36vw, 1.3125rem);
+  --small: calc(var(--text) * 0.76);
+  --lead: calc(var(--text) * 1.42);
+  --h3: calc(var(--text) * 1.5);
+  --display: clamp(3.4rem, 10.6vw, 12.5rem);
+
+  /* Display type inflates through the story: each chapter is set wider and
+     thinner than the last, the way a film thins as a bubble grows. */
+  --wdth: 62;
+  --wght: 880;
+}
+
+/* ---------- 2. Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--black);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 100%;
+  font-optical-sizing: auto;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-size: var(--text);
+  line-height: 1.56;
+  font-weight: 420;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, p, ol, ul, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+img, svg, canvas { display: block; max-width: 100%; }
+a { color: inherit; text-decoration-thickness: 0.06em; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 0.12em; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+::selection { background: var(--white); color: var(--black); }
+
+.skip {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 0.9rem;
+  background: var(--white);
+  color: var(--black);
+  font: 600 var(--small) / 1 var(--sans);
+  transform: translateY(-300%);
+}
+.skip:focus { transform: none; }
+
+/* For screen readers only. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+main:focus { outline: none; }
+
+.display {
+  font-family: var(--sans);
+  font-size: var(--display);
+  font-weight: var(--wght);
+  font-stretch: calc(var(--wdth) * 1%);
+  line-height: 0.86;
+  letter-spacing: -0.022em;
+  word-spacing: 0.07em;
+  color: var(--white);
+  text-wrap: balance;
+}
+
+/* ---------- 3. Masthead and chapter index ---------- */
+
+/* On the page there is no bar: the title and the chapter being read sit in one corner,
+   the word "Chapters" in the other. They stand outside the text columns. */
+.masthead {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem calc(var(--margin) - 0.65em) 0;
+  font: 500 calc(var(--small) * 0.9) / 1.2 var(--sans);
+  font-stretch: 100%;
+  color: var(--white);
+  pointer-events: none;
+  transition: transform 0.35s ease;
+}
+.masthead > * { pointer-events: auto; }
+.masthead a { text-decoration: none; }
+/* Stacked, so the label stays inside the first column and clear of the text. */
+.masthead__place { display: flex; flex-direction: column; align-items: flex-start; }
+.masthead__place,
+.masthead__toggle {
+  padding: 0.5em 0.65em;
+  background: rgb(0 0 0 / 0.74);
+}
+.masthead__title { font-weight: 700; letter-spacing: -0.005em; }
+.masthead__here { color: var(--ash); margin-top: 0.2em; }
+.masthead__here:empty { display: none; }
+.masthead__toggle {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+.masthead__toggle:hover { background: var(--black); }
+.masthead__title:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* On the white pages after the pop the labels turn to ink on paper. */
+.masthead.is-inverted { color: var(--black); }
+.masthead.is-inverted .masthead__place,
+.masthead.is-inverted .masthead__toggle { background: rgb(255 255 255 / 0.86); }
+.masthead.is-inverted .masthead__here { color: #555; }
+
+/* The index: every chapter title in its own width and weight, from the tight black of
+   chapter 1 to the thin wide line of "It pops." */
+.index {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  --index-size: clamp(1.75rem, min(7.6vw, 7.4vh), 4.75rem);
+  padding: 5rem var(--margin) 2.5rem;
+  background: var(--black);
+  color: var(--white);
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+.masthead.is-open .index { opacity: 1; visibility: visible; transition: opacity 0.2s ease; }
+.masthead.is-open .masthead__place,
+.masthead.is-open .masthead__toggle { background: none; color: var(--white); }
+html:has(.masthead.is-open) { overflow: hidden; }
+
+/* Without scripts the button cannot open anything: the index is simply the page's first screen. */
+html:not(.js) .masthead { position: static; display: block; padding-top: 1.1rem; }
+html:not(.js) .masthead__toggle { display: none; }
+html:not(.js) .masthead__place { display: inline-flex; }
+html:not(.js) .index { position: static; z-index: auto; opacity: 1; visibility: visible; min-height: 100svh; padding-left: 0.65em; }
+
+.index ol { counter-reset: chapter; }
+.index li {
+  counter-increment: chapter;
+  display: grid;
+  grid-template-columns: 1.6em minmax(0, 1fr);
+  align-items: baseline;
+  font-family: var(--sans);
+  font-size: var(--index-size);
+  font-weight: var(--wght);
+  font-stretch: calc(var(--wdth) * 1%);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: rgb(255 255 255 / 0.5);
+  transition: color 0.2s;
+}
+.index li::before {
+  content: counter(chapter);
+  font-size: 0.42em;
+  font-weight: 300;
+  font-stretch: 62%;
+  letter-spacing: 0;
+  color: var(--ash);
+}
+.index li:hover,
+.index li:focus-within,
+.index li:has([aria-current]) { color: var(--white); }
+.index li a { display: block; padding: 0.06em 0; }
+.index li:nth-child(1) { --wdth: 62;  --wght: 860; }
+.index li:nth-child(2) { --wdth: 71;  --wght: 760; }
+.index li:nth-child(3) { --wdth: 81;  --wght: 660; }
+.index li:nth-child(4) { --wdth: 92;  --wght: 560; }
+.index li:nth-child(5) { --wdth: 104; --wght: 450; }
+.index li:nth-child(6) { --wdth: 115; --wght: 340; }
+.index li:nth-child(7) { --wdth: 125; --wght: 230; }
+.index__after {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 2em;
+  margin: clamp(1.5rem, 5vh, 3rem) 0 0 calc(var(--index-size) * 1.6);
+  font: 400 var(--text) / 1.3 var(--sans);
+  color: var(--ash);
+}
+.index__after a:hover, .index__after a:focus-visible { color: var(--white); }
+
+/* ---------- 4. Stage and plates ---------- */
+
+#stage {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  height: 100lvh;
+  display: none;
+}
+.has-stage #stage { display: block; }
+
+/* A plate is a photograph pinned to the viewport. Its box says where the picture
+   sits; the --plate-* properties are its art direction (read by src/stage/stage.js).
+   Without the stage (no WebGL, or reduced motion) it falls back to the plain image. */
+.plate { position: relative; color: var(--graphite); }
+.plate img {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: cover;
+  -webkit-mask-image: radial-gradient(ellipse 72% 72% at 50% 50%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 72% 72% at 50% 50%, #000 52%, transparent 100%);
+}
+.plate figcaption {
+  font: 400 calc(var(--small) * 0.92) / 1.3 var(--sans);
+  font-stretch: 96%;
+  color: var(--graphite);
+  max-width: 30ch;
+  padding-top: 0.75rem;
+}
+
+.has-stage .plate {
+  position: fixed;
+  z-index: 2;            /* its caption sits above the scrims behind headings */
+  margin: 0;
+  pointer-events: none;
+}
+.has-stage .plate img { display: none; }
+.has-stage .plate--failed img { display: block; width: 100%; height: 100%; max-height: none; object-fit: cover; opacity: 0.8; }
+.has-stage .plate figcaption {
+  position: absolute;
+  right: var(--margin);
+  bottom: 1.6rem;
+  padding: 0;
+  text-align: right;
+  padding: 0.4em 0.65em;
+  color: var(--ink);
+  background: rgb(0 0 0 / 0.74);
+  opacity: 0;
+}
+/* The bubble is described in the list of photographs; a visible caption would sit on the title. */
+.has-stage .plate--bubble figcaption,
+.has-stage .plate--pop figcaption {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Placements. Soft edges are listed top, right, bottom, left. */
+/* Photographs run off the edges of the screen and dissolve only towards the text,
+   so they read as part of the page and not as islands floating in the dark. */
+.has-stage .plate--right {
+  inset: 0 0 0 49vw;
+  --plate-soft: 0 0 0 0.42;
+}
+.has-stage .plate--left {
+  inset: 0 51vw 0 0;
+  --plate-soft: 0 0.42 0 0;
+}
+.has-stage .plate--left figcaption { right: auto; left: var(--margin); text-align: left; }
+.has-stage .plate--full {
+  inset: 0;
+  --plate-soft: 0 0 0 0;
+}
+.has-stage .plate--wide {
+  inset: 0 0 0 24vw;
+  --plate-soft: 0 0 0 0.55;
+}
+/* Beside text, a photograph arrives with its own text and is gone before the next block's
+   text reaches it, so words never sit on a picture meant for the other side. */
+.has-stage .reading > .plate { --plate-enter: 0.6 0.14; --plate-exit: 0.4 1; }
+/* After a chart, the next photograph waits until the chart has left the screen. */
+.has-stage .reading--plain + .reading > .plate { --plate-enter: 0.45 0.06; }
+/* Behind a heading the photograph darkens towards the heading's corner, arrives once the
+   block before it has cleared the upper screen, and is gone before the next text reaches it. */
+.has-stage .opener > .plate { --plate-shade: 1; --plate-enter: 0.55 0.08; --plate-exit: 0.5 1.05; }
+.has-stage .era > .plate { --plate-shade: 1; }
+
+/* Each photograph's own camera move and framing. (These come after the placement rules and
+   match their weight, so a photograph's own settings win.)
+   --plate-travel: right, down, forward, as a share of the distance to the nearest things.
+   A push forward reads as space. A sideways move only works where things stand in front
+   of other things. --plate-focus: where the lens is focused at the start and the end,
+   0 far .. 1 near; --plate-aperture: how much blur that gives, in px (keep it small). */
+.has-stage [data-plate='keynote']       { --plate-travel: 0.1 0.03 0.4; --plate-focus: 0.2 0.5; --plate-aperture: 2; --plate-pos: 50% 60%; }
+.has-stage [data-plate='aisle']         { --plate-travel: 0 0 0.26; --plate-focus: 0.55 0.45; --plate-aperture: 1.2; --plate-pos: 50% 50%; }
+.has-stage [data-plate='summit']        { --plate-travel: 0.06 0 0.22; --plate-pos: 40% 50%; }
+.has-stage [data-plate='racks']         { --plate-travel: 0.05 0 0.26; --plate-pos: 60% 50%; --plate-gain: 1.15; }
+.has-stage [data-plate='pylons']        { --plate-travel: 0 0.01 0.32; }
+.has-stage [data-plate='power-station'] { --plate-travel: 0.03 0 0.2; --plate-pos: 30% 50%; }
+.has-stage [data-plate='wafer']         { --plate-travel: 0.04 0.02 0.12; --plate-fit: contain; --plate-zoom: 1.02; --plate-soft: 0 0 0 0; }
+.has-stage [data-plate='chip']          { --plate-travel: 0.05 0.01 0.16; }
+.has-stage [data-plate='oracle']        { --plate-travel: 0.01 0 0.22; }
+.has-stage [data-plate='nyse-1929']     { --plate-travel: 0.05 0.02 0.24; --plate-focus: 0.3 0.6; --plate-aperture: 2; }
+.has-stage [data-plate='broad-street']  { --plate-travel: 0 0 0.32; --plate-pos: 50% 70%; }
+.has-stage [data-plate='bank-run']      { --plate-travel: 0.04 0.02 0.16; }
+.has-stage [data-plate='soup-queue']    { --plate-travel: 0.02 0 0.18; }
+.has-stage [data-plate='ticker']        { --plate-travel: 0.03 0 0.24; }
+.has-stage [data-plate='front-page']    { --plate-travel: 0.01 0 0.04; --plate-fit: contain; --plate-zoom: 1; --plate-pos: 50% 34%; --plate-soft: 0 0 0 0; }
+.has-stage [data-plate='trading-floor'] { --plate-travel: 0.04 0 0.26; }
+.has-stage [data-plate='nyse-facade']   { --plate-travel: 0 0.03 0.16; --plate-pos: 50% 30%; }
+/* The street sign is the picture: it stays whole, beside the building, and the pole behind it dissolves. */
+.has-stage [data-plate='wall-street']   { --plate-travel: 0.01 0 0.08; --plate-zoom: 1; --plate-anchor: 0.33 0.07; --plate-soft: 0 0.16 0 0; --plate-bokeh: 3; --plate-scatter: 0.25; }
+.has-stage [data-plate='times-square-2000'] { --plate-travel: 0.02 0 0.24; }
+/* The whole word has to be readable, clear of the year beside it. */
+.has-stage [data-plate='foreclosure']   { --plate-travel: 0.01 0.005 0.045; --plate-pos: 18% 50%; --plate-anchor: 0.395 0.63; --plate-soft: 0 0 0 0.28; --plate-bokeh: 4; }
+.has-stage [data-plate='lehman-2008']   { --plate-travel: 0.04 0 0.2; }
+.has-stage [data-plate='northern-rock'] { --plate-travel: 0.06 0 0.14; }
+.has-stage [data-plate='tulip-satire']  { --plate-travel: 0.012 0 0.1; }
+.has-stage [data-plate='change-alley']  { --plate-travel: 0.04 0 0.14; }
+.has-stage [data-plate='south-sea-scheme'] { --plate-travel: 0.03 0 0.1; }
+.has-stage [data-plate='tulip-book']    { --plate-travel: 0.02 0 0.06; --plate-fit: contain; --plate-pos: 100% 50%; }
+.has-stage [data-plate='film']          { --plate-travel: 0.04 0.02 0.1; }
+.has-stage [data-plate='thinning']      { --plate-travel: 0.04 0.02 0.1; }
+.has-stage [data-plate='marbling']      { --plate-travel: 0.05 0.02 0.1; }
+.has-stage [data-plate='black-film']    { --plate-travel: 0.05 -0.03 0.12; --plate-pos: 50% 100%; }
+.has-stage [data-plate='froth']         { --plate-travel: 0.05 0.01 0.14; --plate-fit: contain; --plate-zoom: 1.1; --plate-soft: 0 0 0 0; }
+.has-stage [data-plate='foam']          { --plate-travel: 0.05 0 0.16; }
+
+/* ---------- 5. Hero ---------- */
+
+.hero { position: relative; min-height: 230vh; }
+.hero__frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: end;
+  padding: 6rem var(--margin) clamp(1.75rem, 5vh, 3.5rem);
+}
+.hero h1 {
+  --display: clamp(4.6rem, 17.4vw, 21rem);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  margin-left: -0.045em;
+}
+.hero h1 span { display: block; }
+.hero__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-top: clamp(1.5rem, 4.5vh, 3rem);
+}
+.hero__dek {
+  max-width: 33ch;
+  font-size: calc(var(--text) * 1.16);
+  line-height: 1.36;
+  color: var(--white);
+}
+.hero__meta {
+  font: 400 var(--small) / 1.45 var(--sans);
+  color: var(--ash);
+  text-align: right;
+}
+.hero__meta b { display: block; font-weight: 600; color: var(--white); }
+
+.has-stage .plate--bubble {
+  top: 50%;
+  left: 70vw;
+  width: min(92vh, 66vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  --plate-overflow: 1;
+  --plate-zoom: 1;
+  --plate-soft: 0 0 0 0;
+  --plate-drift: 4;
+  --plate-sway: 0.05;
+  --plate-travel: 0.2 0.05 0;
+  --plate-grow: 0.7;
+  --plate-grain: 0.05;
+  --plate-scatter: 0.12;
+  --plate-enter: 2 1.4;
+  --plate-exit: 0.2 0.9;
+}
+
+/* ---------- 6. Chapter openers ---------- */
+
+.chapter { position: relative; }
+.opener { position: relative; min-height: 205vh; }
+.opener__frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6rem var(--margin) clamp(2rem, 7vh, 5rem);
+}
+.opener__title {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+}
+.opener__num { grid-column: 1; }
+.opener__title h2 { grid-column: 2 / -1; margin-left: -0.045em; }
+.opener__num {
+  font-family: var(--sans);
+  font-size: calc(var(--display) * 0.3);
+  font-weight: 300;
+  font-stretch: 62%;
+  line-height: 1;
+  color: var(--ash);
+  font-variant-numeric: lining-nums;
+  padding-top: 0.14em;
+}
+.opener h2 { max-width: 11ch; }
+.opener__lead {
+  margin: clamp(1.4rem, 4vh, 2.6rem) 0 0 calc((100% + var(--gutter)) / 12);
+  max-width: 31ch;
+  font-size: var(--lead);
+  line-height: 1.28;
+  font-weight: 380;
+  color: var(--white);
+  text-wrap: pretty;
+}
+
+/* The inflation: wider and thinner, chapter by chapter. */
+#definition { --wdth: 62;  --wght: 860; }
+#history    { --wdth: 71;  --wght: 760; }
+#money      { --wdth: 81;  --wght: 660; }
+#boom       { --wdth: 92;  --wght: 560; }
+#cracks     { --wdth: 104; --wght: 450; }
+#compare    { --wdth: 115; --wght: 340; }
+#pop        { --wdth: 125; --wght: 230; }
+
+/* ---------- 7. Reading ---------- */
+
+.reading {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding: 30vh var(--margin) 24vh;
+}
+.reading > * { grid-column: 2 / span 5; }
+.reading--right > * { grid-column: 7 / span 5; }
+.reading--centre > * { grid-column: 4 / span 6; }
+.reading > .plate { grid-column: auto; }
+
+.prose { max-width: var(--measure); }
+.prose > * + * { margin-top: 1.02em; }
+.prose p { text-wrap: pretty; hanging-punctuation: first; }
+.prose h3 {
+  font-family: var(--sans);
+  font-size: var(--h3);
+  font-weight: 640;
+  font-stretch: 88%;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--white);
+  margin-top: 3.1em;
+  text-wrap: balance;
+}
+.prose > h3:first-child { margin-top: 0; }
+.prose h3 + * { margin-top: 0.85em; }
+
+sup.ref { font: 500 0.62em / 0 var(--sans); vertical-align: 0.62em; margin-left: 0.12em; }
+sup.ref a { text-decoration: none; color: var(--ash); padding: 0.3em 0.12em; }
+sup.ref a:hover { color: var(--white); }
+
+/* The four signs: run-in headings inside the text. */
+.signs { margin-top: 1.6em; }
+.signs div + div { margin-top: 0.7em; }
+.signs dt {
+  display: inline;
+  font: 640 1em / inherit var(--sans);
+  font-stretch: 88%;
+  color: var(--white);
+}
+.signs dt::after { content: '. '; }
+.signs dd { display: inline; color: var(--ink); }
+
+/* Pull quotes. */
+.quote { margin-top: 3em; margin-bottom: 3em; }
+.quote blockquote {
+  font-size: calc(var(--text) * 1.9);
+  font-style: italic;
+  font-weight: 340;
+  line-height: 1.14;
+  letter-spacing: -0.012em;
+  color: var(--white);
+  text-wrap: balance;
+  quotes: '\201C' '\201D';
+}
+.quote blockquote::before { content: open-quote; margin-left: -0.42em; }
+.quote blockquote::after { content: close-quote; }
+.quote figcaption { margin-top: 0.9em; font: 400 var(--small) / 1.3 var(--sans); color: var(--ash); }
+
+/* Recent shocks: date, name, one line. */
+.shocks { margin-top: 2.4em; border-top: 1px solid var(--seam); }
+.shocks li {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  column-gap: var(--gutter);
+  padding: 1.05em 0;
+  border-bottom: 1px solid var(--seam);
+}
+.shocks time, .shocks .when { font: 400 var(--small) / 1.5 var(--sans); color: var(--ash); padding-top: 0.2em; }
+.shocks h3 { font: 640 calc(var(--text) * 1.1) / 1.2 var(--sans); font-stretch: 88%; color: var(--white); }
+.shocks p { margin-top: 0.25em; font-size: var(--small); line-height: 1.42; color: var(--ash); }
+
+/* One day in numbers: a sentence in which the figures are set large. */
+.day {
+  margin-top: 2.2em;
+  margin-bottom: 2.2em;
+  font-size: var(--lead);
+  line-height: 1.5;
+  color: var(--ash);
+  text-wrap: balance;
+}
+.day b {
+  font-family: var(--sans);
+  font-size: 1.9em;
+  font-weight: 450;
+  font-stretch: 104%;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+
+/* ---------- 8. History sequence ---------- */
+
+.eras { position: relative; }
+.era { position: relative; min-height: 190vh; }
+.era__frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6rem var(--margin) clamp(2rem, 7vh, 5rem);
+}
+.era__year {
+  font-family: var(--sans);
+  font-size: clamp(5rem, 21vw, 25rem);
+  font-weight: 760;
+  font-stretch: 71%;
+  line-height: 0.76;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  font-variant-numeric: lining-nums;
+  margin-left: -0.05em;
+}
+.era__year small {
+  display: block;
+  margin: 0 0 0.9em 0.06em;
+  font-size: 0.085em;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--ash);
+}
+.era__year { display: flex; flex-direction: column-reverse; align-items: flex-start; }
+.era__text {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(1.2rem, 3.6vh, 2.4rem);
+  align-items: baseline;
+}
+.era__text h3 { grid-column: 1 / span 3; font: 640 var(--h3) / 1.05 var(--sans); font-stretch: 88%; color: var(--white); }
+.era__text p { grid-column: 4 / span 4; max-width: 34ch; font-size: calc(var(--text) * 0.96); line-height: 1.42; color: var(--ink); }
+.has-stage .era .plate--wide { --plate-enter: 0.95 0.2; --plate-exit: 0.05 0.8; }
+
+/* ---------- 9. Money circle ---------- */
+
+.circle {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding: 4vh var(--margin) 10vh;
+}
+.circle__steps { grid-column: 2 / span 4; padding: 30vh 0 34vh; counter-reset: step; }
+.circle__steps li { counter-increment: step; min-height: 74vh; opacity: 0.6; transition: opacity 0.4s; }
+.circle__steps li.is-current { opacity: 1; }
+.circle__steps li::before {
+  content: counter(step);
+  display: block;
+  font: 300 calc(var(--h3) * 1.9) / 0.9 var(--sans);
+  font-stretch: 62%;
+  color: var(--ash);
+  margin-bottom: 0.25em;
+}
+.circle__steps h3 { font: 640 calc(var(--h3) * 1.25) / 1.02 var(--sans); font-stretch: 81%; letter-spacing: -0.015em; color: var(--white); }
+.circle__steps p { margin-top: 0.85em; }
+.circle__stage {
+  grid-column: 7 / span 6;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  align-self: start;
+}
+.circle__diagram { width: min(100%, 78vh); }
+.circle__diagram svg { width: 100%; height: auto; overflow: visible; }
+.circle__diagram .arc { fill: none; stroke: var(--white); stroke-width: 1.25; opacity: 0.22; transition: opacity 0.5s, stroke-width 0.5s; }
+.circle__diagram .arc.is-on { opacity: 1; stroke-width: 2.5; }
+.circle__diagram .head { fill: var(--white); opacity: 0.22; transition: opacity 0.5s; }
+.circle__diagram .head.is-on { opacity: 1; }
+.circle__diagram .name { font: 700 34px / 1 var(--sans); font-stretch: 81%; letter-spacing: -0.01em; fill: var(--white); }
+.circle__diagram .role { font: 400 15px / 1 var(--sans); fill: var(--ash); }
+.circle__diagram .verb { font: italic 400 19px / 1 var(--serif); fill: var(--ash); opacity: 0; transition: opacity 0.5s; }
+.circle__diagram .verb.is-on { opacity: 1; fill: var(--white); }
+.circle__diagram .core { fill: var(--white); transition: r 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.circle__diagram .core-label { font: 700 15px / 1 var(--sans); font-stretch: 81%; fill: var(--black); transition: font-size 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.circle__note { margin-top: 1.5rem; font: 400 var(--small) / 1.35 var(--sans); color: var(--graphite); text-align: center; }
+
+/* ---------- 10. Charts, gauge ---------- */
+
+.chart { margin-top: 3em; margin-bottom: 3em; }
+.reading > .chart { grid-column: 2 / span 10; max-width: none; }
+.chart__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; margin-bottom: 1.1rem; }
+.chart__title { font: 640 calc(var(--text) * 1.1) / 1.2 var(--sans); font-stretch: 88%; color: var(--white); }
+.chart__unit { font: 400 var(--small) / 1.2 var(--sans); color: var(--ash); }
+.chart svg { width: 100%; height: auto; overflow: visible; }
+.chart .grid { stroke: var(--seam); stroke-width: 1; }
+/* Sizes of chart text are set where the chart is drawn (src/charts.js), per screen width. */
+.chart .axis { font-family: var(--sans); font-weight: 400; fill: var(--ash); font-variant-numeric: tabular-nums; }
+.chart .line { fill: none; stroke: var(--white); stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+.chart .line--quiet { stroke: var(--ash); stroke-width: 1.25; }
+.chart .dot { fill: var(--white); }
+.chart .label { font-family: var(--sans); font-weight: 600; fill: var(--white); font-variant-numeric: tabular-nums; }
+.chart .label--quiet { font-weight: 400; fill: var(--ash); }
+.chart .mark { stroke: var(--graphite); stroke-width: 1; stroke-dasharray: 2 4; }
+.chart figcaption { margin-top: 0.9rem; font: 400 var(--small) / 1.35 var(--sans); color: var(--graphite); max-width: 60ch; }
+
+.gauge { margin-top: 3em; margin-bottom: 3em; }
+.gauge__title { font: 640 calc(var(--text) * 1.1) / 1.2 var(--sans); font-stretch: 88%; color: var(--white); }
+.gauge__scale { position: relative; padding-top: 3.6rem; }
+.gauge ol { display: grid; grid-template-columns: repeat(5, 1fr); }
+.gauge li {
+  border-top: 1px solid var(--graphite);
+  padding: 0.7rem 0.5rem 0 0;
+  font: 400 calc(var(--small) * 0.9) / 1.2 var(--sans);
+  color: var(--ash);
+}
+.gauge li.is-past { color: var(--white); }
+.gauge__scale::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3.6rem;
+  width: calc(var(--at) * 100%);
+  height: 3px;
+  background: var(--white);
+}
+.gauge__now {
+  position: absolute;
+  top: 0.9rem;
+  left: calc(var(--at) * 100%);
+  height: 2.7rem;
+  border-left: 1px solid var(--white);
+  padding-left: 0.5rem;
+  font: 640 var(--small) / 1.1 var(--sans);
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* ---------- 11. The pop ---------- */
+
+.pop { position: relative; min-height: 420vh; }
+.pop__frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 6rem var(--margin) clamp(2rem, 7vh, 5rem);
+}
+.pop__before { align-self: start; max-width: 26ch; font-size: var(--lead); line-height: 1.28; color: var(--white); transition: opacity 0.5s; }
+.pop__verdict { align-self: end; opacity: 0; }
+.pop__verdict h2 { --display: clamp(4.6rem, 19vw, 23rem); line-height: 0.8; margin-left: -0.05em; word-spacing: -0.06em; padding-bottom: 0.2em; }
+.pop__verdict p { margin-top: clamp(1.4rem, 4vh, 2.6rem); max-width: 34ch; font-size: var(--lead); line-height: 1.28; color: var(--white); }
+.pop__burst { position: absolute; top: 46%; height: 26%; left: 0; width: 1px; }
+.has-stage .plate--pop {
+  top: 50%;
+  left: 50%;
+  width: min(104vh, 92vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  --plate-overflow: 1;
+  --plate-zoom: 1;
+  --plate-soft: 0 0 0 0;
+  --plate-drift: 4;
+  --plate-sway: 0.05;
+  --plate-travel: -0.16 0.03 0;
+  --plate-grow: 0.28;
+  --plate-grain: 0.05;
+  --plate-scatter: 0.12;
+  --plate-enter: 1 0.3;
+  --plate-exit: -1 -0.5;
+}
+
+/* ---------- 12. After the pop: paper ---------- */
+
+.paper {
+  position: relative;
+  background: var(--white);
+  color: #111;
+  --ink: #111;
+  --ash: #555;
+  --graphite: #6b6b6b;
+  --seam: #d9d9d9;
+  --wdth: 62;
+  --wght: 880;
+}
+.paper .display, .paper .prose h3 { color: var(--black); }
+.paper ::selection { background: var(--black); color: var(--white); }
+.paper sup.ref a:hover { color: var(--black); }
+
+.after { padding: 22vh var(--margin) 12vh; }
+.after__title { max-width: 9ch; margin-bottom: 14vh; }
+.after__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 12vh; }
+.after__grid section { grid-column: 2 / span 5; }
+.after__grid section:nth-child(even) { grid-column: 7 / span 5; }
+
+.photo { margin: 0; }
+.photo img { width: 100%; height: min(86vh, 62vw); object-fit: cover; }
+.photo figcaption { padding: 0.8rem var(--margin) 0; font: 400 var(--small) / 1.35 var(--sans); color: var(--graphite); }
+
+.endmatter {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 12vh;
+  padding: 16vh var(--margin) 10vh;
+}
+.endmatter > section { grid-column: 2 / span 10; display: grid; grid-template-columns: subgrid; }
+.endmatter h2 { grid-column: 1 / span 3; font: 760 calc(var(--h3) * 1.25) / 1 var(--sans); font-stretch: 71%; letter-spacing: -0.015em; color: var(--black); }
+.endmatter .prose, .endmatter ol, .endmatter ul { grid-column: 4 / span 7; }
+.endmatter .credits-note { max-width: none; }
+.sources { counter-reset: source; font: 400 var(--small) / 1.45 var(--sans); columns: 2; column-gap: var(--gutter); }
+.sources li { counter-increment: source; position: relative; padding-left: 2.6em; margin-bottom: 0.8em; break-inside: avoid; }
+.sources li::before { content: counter(source); position: absolute; left: 0; font-variant-numeric: tabular-nums; color: var(--graphite); }
+.sources li:target { background: #ececec; outline: 0.5em solid #ececec; }
+.credits-note { grid-column: 4 / span 7; margin-bottom: 2.2em; font-size: calc(var(--text) * 0.94); }
+.credits { font: 400 var(--small) / 1.45 var(--sans); columns: 2; column-gap: var(--gutter); }
+.credits li { margin-bottom: 0.8em; break-inside: avoid; }
+.credits b { font-weight: 640; }
+.colophon { grid-column: 2 / span 10; padding-top: 2rem; border-top: 1px solid var(--seam); display: flex; justify-content: space-between; gap: 2rem; font: 400 var(--small) / 1.4 var(--sans); color: var(--graphite); }
+
+/* ---------- 13. Small screens and fallbacks ---------- */
+
+@media (max-width: 1100px) {
+  /* Tablets: the text takes half the screen, not five columns of twelve. */
+  .reading > * { grid-column: 1 / span 6; }
+  .reading--right > * { grid-column: 7 / span 6; }
+  .reading--centre > *, .reading > .chart { grid-column: 1 / -1; }
+  .circle__steps { grid-column: 1 / span 5; }
+  .circle__stage { grid-column: 6 / span 7; }
+  .shocks li { grid-template-columns: 1fr; }
+  .after__grid section { grid-column: 1 / span 6; }
+  .after__grid section:nth-child(even) { grid-column: 7 / span 6; }
+  .endmatter > section, .colophon { grid-column: 1 / -1; }
+
+  /* The gauge reads as a list once the five stages no longer fit in a row. */
+  .gauge__scale { padding-top: 0.9rem; }
+  .gauge__scale::after { display: none; }
+  .gauge ol { grid-template-columns: 1fr; }
+  .gauge li { border-top: 0; border-left: 1px solid var(--graphite); padding: 0.5rem 0 0.5rem 0.9rem; font-size: var(--small); }
+  .gauge li.is-past { border-left-color: var(--white); border-left-width: 3px; padding-left: calc(0.9rem - 2px); }
+  .gauge li[aria-current]::after { content: ': AI today (our estimate)'; font-weight: 640; }
+  .gauge__now { display: none; }
+}
+
+@media (max-width: 820px) {
+  :root { --measure: 100%; }
+  /* Text runs the full width here, so the corner labels step aside while reading down. */
+  .masthead.is-hidden:not(.is-open):not(:focus-within) { transform: translateY(-140%); }
+  .masthead__here { display: none; }
+  .masthead__toggle { padding: 0.75em 0.8em; }
+  .index__after { margin-left: 0; }
+  /* On a phone each photograph has the screen to itself first, then the text scrolls over
+     it, dimmed. The gap under each block lets the next photograph arrive on a clear screen. */
+  .reading, .reading--right, .reading--centre { display: block; padding: 0 var(--margin) 55svh; }
+  .has-stage .reading { padding-top: 82svh; }
+  .has-stage .reading--plain { padding-top: 12vh; padding-bottom: 30svh; }
+  .has-stage .plate--right, .has-stage .plate--left, .has-stage .plate--wide, .has-stage .plate--full {
+    inset: 0;
+    --plate-soft: 0 0 0 0;
+    --plate-anchor: initial;
+    --plate-dim: 0.22;
+    --plate-dim-at: 0 0.07;
+  }
+  .has-stage .reading > .plate { --plate-enter: 0.6 0.12; }
+  /* No room for captions beside the text on a phone; they stay available to screen readers,
+     and every photograph is listed at the end. */
+  .has-stage .plate figcaption { width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .has-stage .opener > .plate, .has-stage .era > .plate { --plate-dim: 0.7; --plate-dim-at: 0 0.01; --plate-shade: 1; }
+  .has-stage .plate--bubble { left: 50%; top: 38%; width: 96vw; --plate-grow: 0.9; }
+  /* Pictures that are shown whole on a wide screen fill the phone screen instead. */
+  .has-stage [data-plate='tulip-book'], .has-stage [data-plate='wafer'], .has-stage [data-plate='froth'] { --plate-fit: cover; --plate-zoom: 1.06; }
+  .has-stage [data-plate='front-page'] { --plate-pos: 50% 26%; }
+  .hero__foot { flex-direction: column; align-items: start; gap: 1.2rem; }
+  .hero__meta { text-align: left; }
+  .opener__title { display: block; }
+  .opener__title h2 { margin-left: -0.03em; }
+  .opener__num { display: block; font-size: calc(var(--display) * 0.55); padding: 0 0 0.15em; }
+  .pop__before .opener__num { display: inline; padding: 0; font-size: inherit; }
+  .opener__lead { margin-left: 0; }
+  .era__text { display: block; }
+  .era__text p { margin-top: 0.6em; }
+
+  /* The money circle stays at the top of the screen while its four steps scroll beneath it. */
+  .circle { display: flex; flex-direction: column; padding-bottom: 6vh; }
+  .circle__stage {
+    order: -1;
+    align-self: stretch;
+    top: 3rem;
+    height: 46svh;
+    z-index: 1;
+    background: linear-gradient(var(--black) 86%, rgb(0 0 0 / 0));
+  }
+  .circle__diagram { width: min(100%, 42svh); }
+  .circle__note { display: none; }
+  .circle__steps { padding: 4vh 0 10vh; }
+  .circle__steps li { min-height: 62svh; }
+  .circle__diagram .name { font-size: 44px; }
+  .circle__diagram .role { font-size: 24px; }
+  .circle__diagram .verb { font-size: 26px; }
+
+  .after__grid, .endmatter { display: block; }
+  .after__grid section + section, .endmatter > section + section { margin-top: 9vh; }
+  .endmatter > section { display: block; }
+  .endmatter h2 { margin-bottom: 1.2em; }
+  .sources, .credits { columns: 1; }
+  .colophon { flex-direction: column; gap: 0.6rem; margin-top: 9vh; }
+  sup.ref a { position: relative; }
+  sup.ref a::after { content: ''; position: absolute; inset: -14px -10px; }
+}
+
+/* Without the stage every beat is an ordinary article with photographs. */
+html:not(.has-stage) .hero { min-height: 0; display: flex; flex-direction: column-reverse; }
+html:not(.has-stage) .reading { padding-top: 10vh; padding-bottom: 10vh; }
+html:not(.has-stage) .plate img[width][height] { height: auto; max-height: 78vh; object-fit: contain; }
+html:not(.has-stage) .hero__frame, html:not(.has-stage) .opener__frame, html:not(.has-stage) .era__frame, html:not(.has-stage) .pop__frame { position: static; height: auto; min-height: 0; padding-top: 7rem; }
+html:not(.has-stage) .opener, html:not(.has-stage) .era, html:not(.has-stage) .pop { min-height: 0; }
+html:not(.has-stage) .plate { margin: 0 0 2.5rem; }
+html:not(.has-stage) .opener > .plate, html:not(.has-stage) .era > .plate, html:not(.has-stage) .hero > .plate, html:not(.has-stage) .pop > .plate { padding: 6rem var(--margin) 0; margin: 0; }
+html:not(.has-stage) .reading > .plate { grid-column: 2 / span 10; }
+html:not(.has-stage) .pop__verdict { opacity: 1; }
+html:not(.has-stage) .circle__steps li { opacity: 1; min-height: 0; padding-bottom: 3em; }
+html:not(.has-stage) .circle__steps { padding: 6vh 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  :root { --white: #000; --black: #fff; --ink: #111; --ash: #444; --graphite: #555; --seam: #ccc; }
+  html, body { background: #fff; color: #111; }
+  #stage, .masthead, .skip { display: none !important; }
+  .hero, .opener, .era, .pop { min-height: 0 !important; }
+  .hero__frame, .opener__frame, .era__frame, .pop__frame, .circle__stage { position: static !important; height: auto !important; padding-top: 2rem; }
+  .opener__frame::before, .era__frame::before { display: none; }
+  .has-stage .plate { position: static; transform: none; width: auto; aspect-ratio: auto; margin: 0 0 1.5rem; break-inside: avoid; }
+  .has-stage .plate img { display: block; max-height: 40vh; -webkit-mask-image: none; mask-image: none; }
+  .has-stage .plate figcaption { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; padding: 0.5rem 0 0; background: none; color: #444; opacity: 1 !important; }
+  .reading, .circle, .after, .endmatter { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .circle__steps { padding: 0; }
+  .circle__steps li { min-height: 0; opacity: 1; padding-bottom: 1.5rem; }
+  .pop__verdict, .pop__before { opacity: 1 !important; }
+  .chart .line, .chart .dot, .chart .label, .circle__diagram .arc, .circle__diagram .head { stroke-dashoffset: 0 !important; opacity: 1 !important; }
+  h2, h3 { break-after: avoid; }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "is-ai-a-bubble",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "plates": "node tools/make-plates.mjs",
+    "shoot": "node tools/shoot.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.18.1",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.8"
+  }
+}

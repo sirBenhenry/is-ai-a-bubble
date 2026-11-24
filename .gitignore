@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+shots/
+
+# The original photographs stay on the computer that builds the plates: they are large,
+# and the folders also hold candidates that never passed the licence check. What the site
+# needs is in public/plates/. The licence records (manifest.json) are kept.
+assets-src/**
+!assets-src/*/
+!assets-src/*/manifest.json
+
+surface-tension.html
+
+# The ssh name of the computer that computes depth (see tools/README.md).
+.plates-host

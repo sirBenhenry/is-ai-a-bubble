@@ -1,0 +1,601 @@
+{
+  "keynote": {
+    "w": 3072,
+    "h": 1730,
+    "f": 1958.0570068359375,
+    "near": 2.45755,
+    "depth": [
+      3.5733,
+      20.8925,
+      59.6207
+    ],
+    "photo": "plates/keynote.jpg",
+    "depthMap": "plates/keynote.depth.png",
+    "photoW": 2048,
+    "photoH": 1153,
+    "alt": "A packed arena seen from the upper tier, thousands of people facing a huge lit screen.",
+    "caption": "The audience at Nvidia’s keynote, CES, Las Vegas, January 2025.",
+    "credit": "Joseph Zadeh, \"Jensen Huang Nvidia Keynote CES 2025\" (6 January 2025), Wikimedia Commons, CC BY-SA 4.0 (converted to grayscale)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_Nvidia_Keynote_CES_2025.jpg"
+  },
+  "oracle": {
+    "w": 3072,
+    "h": 1679,
+    "f": 2264.42041015625,
+    "near": 11.0219,
+    "depth": [
+      12.132,
+      176.2841,
+      5510.9508
+    ],
+    "photo": "plates/oracle.jpg",
+    "depthMap": "plates/oracle.depth.png",
+    "photoW": 2048,
+    "photoH": 1120,
+    "alt": "A row of cylindrical glass office towers beside a lake.",
+    "caption": "Oracle’s former headquarters, Redwood Shores, California.",
+    "credit": "Håkan Dahlström, \"Oracle Headquarters Redwood Shores\" (17 November 2009), Flickr via Wikimedia Commons, CC BY 2.0 (converted to grayscale)",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oracle_Headquarters_Redwood_Shores.jpg"
+  },
+  "bubble": {
+    "w": 3072,
+    "h": 3072,
+    "f": 9216,
+    "near": 6.083825265643448,
+    "depth": [
+      6.083825265643448,
+      7.083825265643448,
+      8.083825265643448
+    ],
+    "sphere": {
+      "z": 7.083825265643448,
+      "r": 1,
+      "cx": 0.3091,
+      "cy": 0.5167
+    },
+    "photo": "plates/bubble.jpg",
+    "depthMap": "plates/bubble.depth.png",
+    "photoW": 2048,
+    "photoH": 2048,
+    "alt": "A bubble lit from the right against black, its surface marbled with swirling bands.",
+    "caption": "A bubble of soap film, half lit. The marbling is the film draining. (The photographer mixed oil into the soap.)",
+    "credit": "Photo by Daniel Olah on Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/swirling-orange-soap-film-pattern-fTyBR0bkDF8"
+  },
+  "film": {
+    "w": 3072,
+    "h": 2050,
+    "f": 6775.36279296875,
+    "near": 1.40674,
+    "depth": [
+      1.4123,
+      1.483,
+      1.55
+    ],
+    "photo": "plates/film.jpg",
+    "depthMap": "plates/film.depth.png",
+    "photoW": 2048,
+    "photoH": 1366,
+    "alt": "Round islands with concentric rings floating in a dark soap film.",
+    "caption": "Soap film under a microscope: islands of thicker film in a thinning sheet.",
+    "credit": "Karl Gaff, \"Lipid Islands on Soap Bubble\", via Wikimedia Commons, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0). Converted to grayscale.",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lipid_Islands_on_Soap_Bubble_(horizontal).jpg"
+  },
+  "marbling": {
+    "w": 2456,
+    "h": 3072,
+    "f": 5136.859375,
+    "near": 0.94521,
+    "depth": [
+      0.9618,
+      1.208,
+      2.7129
+    ],
+    "photo": "plates/marbling.jpg",
+    "depthMap": "plates/marbling.depth.png",
+    "photoW": 1637,
+    "photoH": 2048,
+    "alt": "Close view of a soap bubble whose surface is covered in fine swirling bands.",
+    "caption": "The surface of a bubble, close.",
+    "credit": "Photo by Daniel Olah on Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/blue-yellow-and-brown-planet-with-black-background-04RhrsalOmU"
+  },
+  "froth": {
+    "w": 3072,
+    "h": 2560,
+    "f": 10941.16015625,
+    "near": 1.37593,
+    "depth": [
+      1.3967,
+      2.3073,
+      2.7222
+    ],
+    "photo": "plates/froth.jpg",
+    "depthMap": "plates/froth.depth.png",
+    "photoW": 2048,
+    "photoH": 1707,
+    "alt": "A dome-shaped cluster of soap bubbles against black, each outlined by thin bright walls.",
+    "caption": "Froth: a cluster of bubbles sharing their walls.",
+    "credit": "Dietmar Rabich / Wikimedia Commons / \"Seifenblasen -- 2021 -- 6803\" / CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Converted to grayscale.",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seifenblasen_--_2021_--_6803.jpg"
+  },
+  "black-film": {
+    "w": 3072,
+    "h": 1452,
+    "f": 5314.009765625,
+    "near": 0.6361,
+    "depth": [
+      0.6509,
+      0.849,
+      0.9257
+    ],
+    "photo": "plates/black-film.jpg",
+    "depthMap": "plates/black-film.depth.png",
+    "photoW": 2048,
+    "photoH": 968,
+    "alt": "The top of a soap bubble mottled with black patches where the film has thinned.",
+    "caption": "Dark patches at the top of a bubble, where the film has thinned so far that it looks black. A film this thin is close to bursting.",
+    "credit": "Photo by Ryan Braxton on Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/colorful-abstract-patterns-on-a-bubble-surface-hTU_01uoAu0"
+  },
+  "thinning": {
+    "w": 3072,
+    "h": 2045,
+    "f": 7228.98583984375,
+    "near": 1.46839,
+    "depth": [
+      1.4882,
+      1.5708,
+      1.6682
+    ],
+    "photo": "plates/thinning.jpg",
+    "depthMap": "plates/thinning.depth.png",
+    "photoW": 2048,
+    "photoH": 1363,
+    "alt": "A large dark area of very thin soap film dotted with pale discs, meeting bright banded film along a sharp curved edge.",
+    "caption": "Black film spreading through a soap film.",
+    "credit": "Alexander Klepnev, \"Мыльный пузырь\" (Soap bubble), via Wikimedia Commons, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0). Converted to grayscale.",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%D0%9C%D1%8B%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BF%D1%83%D0%B7%D1%8B%D1%80%D1%8C.tif"
+  },
+  "nyse-1929": {
+    "w": 3072,
+    "h": 2375,
+    "f": 3843.464599609375,
+    "near": 4.20307,
+    "depth": [
+      6.4047,
+      27.1494,
+      53.4561
+    ],
+    "photo": "plates/nyse-1929.jpg",
+    "depthMap": "plates/nyse-1929.depth.png",
+    "photoW": 2048,
+    "photoH": 1584,
+    "alt": "A dense crowd of men in hats filling the street in front of the New York Stock Exchange.",
+    "caption": "The crowd outside the New York Stock Exchange after the crash, 1929.",
+    "credit": "Crowd outside the New York Stock Exchange after the crash, 1929. Photograph by Pacific & Atlantic Photos, Inc.; New York World-Telegram and the Sun Newspaper Photograph Collection, Library of Congress, Prints and Photographs Division, LC-USZ62-123429. No known restrictions on publication.",
+    "license": "Public domain (US): LoC \"No known restrictions on publication. No copyright renewal found in U.S. Copyright Office, 2012\"; 1929 work, US term also expired by age",
+    "source": "https://www.loc.gov/pictures/item/99471695/"
+  },
+  "broad-street": {
+    "w": 3072,
+    "h": 2799,
+    "f": 8006.17138671875,
+    "near": 19.68426,
+    "depth": [
+      23.4402,
+      102.4034,
+      386.4546
+    ],
+    "photo": "plates/broad-street.jpg",
+    "depthMap": "plates/broad-street.depth.png",
+    "photoW": 2048,
+    "photoH": 1866,
+    "alt": "A narrow street between tall office buildings in lower Manhattan, cars parked along the kerb.",
+    "caption": "Broad Street looking toward Wall Street, photographed by Berenice Abbott in 1936.",
+    "credit": "Berenice Abbott, Broad Street looking toward Wall Street, Manhattan, 16 July 1936. \"Changing New York\", Federal Art Project (WPA). From The New York Public Library, Photography Collection. Public domain in the United States.",
+    "license": "Public domain in the United States (NYPL rights statement; Commons PD-USGov-WPA, Federal Art Project work)",
+    "source": "https://commons.wikimedia.org/wiki/File:Broad_Street_looking_toward_Wall_Street,_Manhattan_(NYPL_b13668355-1219154).jpg"
+  },
+  "bank-run": {
+    "w": 2840,
+    "h": 2226,
+    "f": 3280.216620763143,
+    "near": 8.01202,
+    "depth": [
+      9.0202,
+      14.2686,
+      64.2536
+    ],
+    "photo": "plates/bank-run.jpg",
+    "depthMap": "plates/bank-run.depth.png",
+    "photoW": 2048,
+    "photoH": 1605,
+    "alt": "A crowd pressed around the entrance of a bank, seen from above.",
+    "caption": "Depositors in front of the closed American Union Bank, New York, 1932.",
+    "credit": "Depositors in front of the closed American Union Bank, New York City, 26 April 1932. U.S. National Archives, Photographic File of the Paris Bureau of the New York Times, 306-NT-677-B-177.476C (NAID 12573155). Unrestricted use.",
+    "license": "US National Archives: Use Restrictions \"Unrestricted\" (NAID 12573155). Commons tag PD-USGov",
+    "source": "https://catalog.archives.gov/id/12573155"
+  },
+  "soup-queue": {
+    "w": 2970,
+    "h": 2422,
+    "f": 6770.331702232361,
+    "near": 7.60085,
+    "depth": [
+      8.1752,
+      17.1862,
+      41.5222
+    ],
+    "photo": "plates/soup-queue.jpg",
+    "depthMap": "plates/soup-queue.depth.png",
+    "photoW": 2048,
+    "photoH": 1670,
+    "alt": "A long line of men in coats and caps waiting under a sign offering free soup, coffee and doughnuts.",
+    "caption": "Unemployed men queue outside a soup kitchen, Chicago, 1931.",
+    "credit": "Unemployed men queued outside a Depression soup kitchen opened in Chicago by Al Capone, February 1931. U.S. National Archives, Photographic File of the Paris Bureau of the New York Times, 306-NT-165319c (NAID 541927). Unrestricted use.",
+    "license": "US National Archives: Use Restrictions \"Unrestricted\", Access \"Unrestricted\" (NAID 541927)",
+    "source": "https://catalog.archives.gov/id/541927"
+  },
+  "front-page": {
+    "w": 3072,
+    "h": 630,
+    "f": 3614.709228515625,
+    "near": 4.12944,
+    "depth": [
+      4.1396,
+      4.184,
+      4.2296
+    ],
+    "photo": "plates/front-page.jpg",
+    "depthMap": "plates/front-page.depth.png",
+    "photoW": 2048,
+    "photoH": 420,
+    "alt": "A newspaper front page with the banner headline “Billions lost as stocks crash”.",
+    "caption": "The Santa Ana Register, 28 October 1929.",
+    "credit": "Santa Ana Register, front page, 28 October 1929. Scan by Orange County Archives, via Wikimedia Commons, CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/).",
+    "license": "CC BY 2.0 (scan, Orange County Archives); underlying 1929 newspaper out of copyright in the US",
+    "source": "https://commons.wikimedia.org/wiki/File:Santa_Ana_Register_front_page,_Oct_28,_1929_-_Flickr_-_Orange_County_Archives.jpg"
+  },
+  "ticker": {
+    "w": 3072,
+    "h": 2376,
+    "f": 4939.46630859375,
+    "near": 2.66083,
+    "depth": [
+      3.0107,
+      18.0978,
+      29.038
+    ],
+    "photo": "plates/ticker.jpg",
+    "depthMap": "plates/ticker.depth.png",
+    "photoW": 2048,
+    "photoH": 1584,
+    "alt": "A long bench of ticker instruments under glass domes in a tall room.",
+    "caption": "The central control station of the stock ticker, New York Stock Exchange, 1922.",
+    "credit": "Automatic ticker apparatus, New York Stock Exchange, central control station, 1922. Library of Congress, Prints and Photographs Division, LC-DIG-ds-06719. No known restrictions on publication.",
+    "license": "Public domain (US): LoC \"No known restrictions on publication\"; copyright registered 5 Dec 1922 (J258797), US term expired",
+    "source": "https://www.loc.gov/pictures/item/2013647237/"
+  },
+  "wafer": {
+    "w": 3072,
+    "h": 2040,
+    "f": 6054.40576171875,
+    "near": 0.90722,
+    "depth": [
+      0.9257,
+      1.0501,
+      1.8894
+    ],
+    "photo": "plates/wafer.jpg",
+    "depthMap": "plates/wafer.depth.png",
+    "photoW": 2048,
+    "photoH": 1360,
+    "alt": "A round silicon wafer covered in a grid of identical chips, on black.",
+    "caption": "A silicon wafer of processors before it is cut into chips.",
+    "credit": "Intel in Deutschland, \"4th Generation Intel Core Processor Wafer\", 2013, via Wikimedia Commons, CC BY-SA 2.0",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:4th_Generation_Intel%C2%AE_Core%E2%84%A2_Processor_Wafer_Black.jpg"
+  },
+  "chip": {
+    "w": 3072,
+    "h": 2010,
+    "f": 11937.828125,
+    "near": 2.00548,
+    "depth": [
+      2.0343,
+      2.4405,
+      3.0655
+    ],
+    "photo": "plates/chip.jpg",
+    "depthMap": "plates/chip.depth.png",
+    "photoW": 2048,
+    "photoH": 1340,
+    "alt": "Close view of a square Nvidia chip seated on a circuit board.",
+    "caption": "An Nvidia graphics processor for gaming (GeForce RTX 3090, 2020) on its circuit board.",
+    "credit": "Fritzchens Fritz, \"Nvidia GA102 (GeForce RTX 3090) GPU die\", 2020, via Wikimedia Commons, CC0 1.0 (attribution not required, given as courtesy)",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nvidia@8nm@Ampere@GA102@GeForce_RTX_3090@S_TW_2032A1_SNNB9W.000_GA102-300-A1_DSC06025-DSC06107_(50740715646).jpg"
+  },
+  "aisle": {
+    "w": 1920,
+    "h": 1275,
+    "f": 1293.7747192382812,
+    "near": 2.6137,
+    "depth": [
+      2.7592,
+      3.0989,
+      10.8239
+    ],
+    "photo": "plates/aisle.jpg",
+    "depthMap": "plates/aisle.depth.png",
+    "photoW": 1920,
+    "photoH": 1275,
+    "alt": "A long, brightly lit aisle between two rows of tall black computer cabinets.",
+    "caption": "Frontier, a supercomputer built for science at Oak Ridge National Laboratory, 2022.",
+    "credit": "OLCF at ORNL (Oak Ridge Leadership Computing Facility), \"Frontier Supercomputer\", 2022, via Wikimedia Commons, CC BY 2.0",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Frontier_Supercomputer_(1).jpg"
+  },
+  "summit": {
+    "w": 3072,
+    "h": 1728,
+    "f": 2128.3291015625,
+    "near": 1.19374,
+    "depth": [
+      1.2295,
+      1.9292,
+      12.0141
+    ],
+    "photo": "plates/summit.jpg",
+    "depthMap": "plates/summit.depth.png",
+    "photoW": 2048,
+    "photoH": 1152,
+    "alt": "A row of computer cabinets with angular panels receding into the distance.",
+    "caption": "The Summit supercomputer, Oak Ridge National Laboratory, 2018. It was switched off in 2024.",
+    "credit": "Carlos Jones / Oak Ridge National Laboratory, \"Summit supercomputer\", 2018, via Wikimedia Commons, CC BY 2.0",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Summit_supercomputer_(31430045337).jpg"
+  },
+  "racks": {
+    "w": 3072,
+    "h": 2048,
+    "f": 3919.33203125,
+    "near": 0.92739,
+    "depth": [
+      0.9545,
+      1.6227,
+      6.698
+    ],
+    "photo": "plates/racks.jpg",
+    "depthMap": "plates/racks.depth.png",
+    "photoW": 2048,
+    "photoH": 1365,
+    "alt": "Dark server racks with perforated doors, seen at an angle along an aisle.",
+    "caption": "Server racks in a data centre.",
+    "credit": "Victor Grigas (Victorgrigas), \"Wikimedia Foundation Servers-8055 10\", 2012, via Wikimedia Commons, CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_10.jpg"
+  },
+  "pylons": {
+    "w": 3072,
+    "h": 1807,
+    "f": 12265.9140625,
+    "near": 39.65407,
+    "depth": [
+      46.0852,
+      369.7638,
+      19827.0348
+    ],
+    "photo": "plates/pylons.jpg",
+    "depthMap": "plates/pylons.depth.png",
+    "photoW": 2048,
+    "photoH": 1205,
+    "alt": "Electricity pylons marching away down a cleared strip between trees.",
+    "caption": "A power-line corridor.",
+    "credit": "PumpkinSky, \"Power lines during Blue Hour BW\", 2017, via Wikimedia Commons, CC BY-SA 3.0",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Power_lines_during_Blue_Hour_BW.jpg"
+  },
+  "power-station": {
+    "w": 3072,
+    "h": 2049,
+    "f": 2350.02099609375,
+    "near": 11.4866,
+    "depth": [
+      13.4502,
+      276.8918,
+      5743.2981
+    ],
+    "photo": "plates/power-station.jpg",
+    "depthMap": "plates/power-station.depth.png",
+    "photoW": 2048,
+    "photoH": 1366,
+    "alt": "A power station at night, steam rising from its cooling tower past bright lamps.",
+    "caption": "Rostock coal power station, Germany, 2021.",
+    "credit": "Radomianin, \"Rostock Power Station, SW view\", 2021, via Wikimedia Commons, CC BY-SA 4.0",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rostock_Power_Station,_SW_view.jpg"
+  },
+  "trading-floor": {
+    "w": 2419,
+    "h": 2560,
+    "f": 1981.0795084635417,
+    "near": 1.64683,
+    "depth": [
+      1.7847,
+      3.4842,
+      18.4267
+    ],
+    "photo": "plates/trading-floor.jpg",
+    "depthMap": "plates/trading-floor.depth.png",
+    "photoW": 1935,
+    "photoH": 2048,
+    "alt": "Trading posts and overhead screens on the floor of the New York Stock Exchange.",
+    "caption": "The trading floor of the New York Stock Exchange, November 2021.",
+    "credit": "Bear Bull Traders, \"Peter Tuchman in NYSE, 2021\" (5 November 2021), Flickr via Wikimedia Commons, CC BY 2.0 (converted to grayscale)",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peter_Tuchman_in_NYSE,_2021.jpg"
+  },
+  "nyse-facade": {
+    "w": 3072,
+    "h": 1844,
+    "f": 1343.346435546875,
+    "near": 6.51273,
+    "depth": [
+      7.8787,
+      15.3892,
+      3256.3639
+    ],
+    "photo": "plates/nyse-facade.jpg",
+    "depthMap": "plates/nyse-facade.depth.png",
+    "photoW": 2048,
+    "photoH": 1229,
+    "alt": "The columned front of the New York Stock Exchange seen from below, towers rising behind it.",
+    "caption": "The New York Stock Exchange, Broad Street.",
+    "credit": "Billie Grace Ward, \"Wide-Angle New York Stock Exchange\" (15 August 2021), Flickr via Wikimedia Commons, CC0 1.0",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wide-Angle_New_York_Stock_Exchange_(51680640260).jpg"
+  },
+  "wall-street": {
+    "w": 3072,
+    "h": 2048,
+    "f": 4443.4423828125,
+    "near": 3.06212,
+    "depth": [
+      3.4594,
+      75.2583,
+      1531.0616
+    ],
+    "photo": "plates/wall-street.jpg",
+    "depthMap": "plates/wall-street.depth.png",
+    "photoW": 2048,
+    "photoH": 1365,
+    "alt": "A Wall Street sign on a lamp post between tall stone buildings.",
+    "caption": "Wall Street.",
+    "credit": "Chris Li, \"Monochrome wall street sign\" (2016), Unsplash via Wikimedia Commons, CC0 1.0",
+    "license": "CC0 1.0 (2016 Unsplash release); current Unsplash licence also applies to the downloaded copy",
+    "source": "https://commons.wikimedia.org/wiki/File:Monochrome_wall_street_sign_(Unsplash).jpg"
+  },
+  "tulip-satire": {
+    "w": 3072,
+    "h": 2117,
+    "f": 5620.2861328125,
+    "near": 9.01532,
+    "depth": [
+      9.2001,
+      16.9271,
+      306.7484
+    ],
+    "photo": "plates/tulip-satire.jpg",
+    "depthMap": "plates/tulip-satire.depth.png",
+    "photoW": 2048,
+    "photoH": 1411,
+    "alt": "A painting of monkeys in human dress trading, weighing and counting tulips in an arcade.",
+    "caption": "Jan Brueghel the Younger, Allegory of Tulip Mania, about 1640 to 1650. The speculators are painted as monkeys.",
+    "credit": "Jan Brueghel the Younger, Allegory of Tulipomania, c. 1640-1650. Image: Dorotheum, via Wikimedia Commons. Public domain.",
+    "license": "Public domain (PD-old-100-expired / PD-US-expired)",
+    "source": "https://commons.wikimedia.org/wiki/File:Allegory_of_Tulip_Mania_by_Jan_Brueghel_II.jpg"
+  },
+  "tulip-book": {
+    "w": 2319,
+    "h": 3072,
+    "f": 3726.09375,
+    "near": 0.92426,
+    "depth": [
+      0.9272,
+      0.9626,
+      0.9867
+    ],
+    "photo": "plates/tulip-book.jpg",
+    "depthMap": "plates/tulip-book.depth.png",
+    "photoW": 1546,
+    "photoH": 2048,
+    "alt": "A watercolour of a single tulip with flame-like stripes on its petals.",
+    "caption": "A flamed tulip from a Dutch tulip book of about 1643, artist unknown. Growers showed buyers pictures like this one.",
+    "credit": "Unknown artist, tulip from the Tulip Book associated with Judith Leyster, c. 1643. Frans Hals Museum, Haarlem, via Wikimedia Commons. Public domain.",
+    "license": "Public domain (PD-Art, PD-old-100-expired)",
+    "source": "https://commons.wikimedia.org/wiki/File:Judith_Jansdr_Leyster_-_Tulpenboek_-_1643.JPG"
+  },
+  "change-alley": {
+    "w": 2239,
+    "h": 1510,
+    "f": 4118.337535540263,
+    "near": 7.61208,
+    "depth": [
+      7.8531,
+      12.9215,
+      48.9347
+    ],
+    "photo": "plates/change-alley.jpg",
+    "depthMap": "plates/change-alley.depth.png",
+    "photoW": 2048,
+    "photoH": 1381,
+    "alt": "An engraving of a crowded London alley full of people buying and selling shares.",
+    "caption": "Exchange Alley in 1720, as the Victorian painter Edward Matthew Ward imagined it in 1847 (engraving).",
+    "credit": "After Edward Matthew Ward, The South Sea Bubble, a Scene in 'Change Alley in 1720, 19th-century engraving after the painting of 1847. Scan: Baker Library, Harvard Business School, via Wikimedia Commons. Public domain.",
+    "license": "Public domain (PD-Art, PD-old-100)",
+    "source": "https://commons.wikimedia.org/wiki/File:South_Sea_Bubble.jpg"
+  },
+  "times-square-2000": {
+    "w": 3072,
+    "h": 2039,
+    "f": 7005.71630859375,
+    "near": 1.27403,
+    "depth": [
+      1.3931,
+      74.9229,
+      637.0151
+    ],
+    "photo": "plates/times-square-2000.jpg",
+    "depthMap": "plates/times-square-2000.depth.png",
+    "photoW": 2048,
+    "photoH": 1359,
+    "alt": "A crowd filling Times Square at night under lit advertising signs.",
+    "caption": "Times Square on New Year’s Eve, 1999 to 2000.",
+    "credit": "Rob Boudon, \"New Years Eve 1999-2000 - Times Square\", via Wikimedia Commons (originally Flickr), CC BY 2.0",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Years_Eve_1999-2000_-_Times_Square.jpg"
+  },
+  "foreclosure": {
+    "w": 3072,
+    "h": 2304,
+    "f": 2484.66796875,
+    "near": 0.4216,
+    "depth": [
+      0.4631,
+      4.0837,
+      210.7978
+    ],
+    "photo": "plates/foreclosure.jpg",
+    "depthMap": "plates/foreclosure.depth.png",
+    "photoW": 2048,
+    "photoH": 1536,
+    "alt": "A real-estate sign reading “Foreclosure” fixed in front of a house.",
+    "caption": "A foreclosure sign in front of a house, 2008.",
+    "credit": "respres, \"Sign of the times - Foreclosure\" (31 May 2008), via Wikimedia Commons (originally Flickr), CC BY 2.0",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sign_of_the_Times-Foreclosure.jpg"
+  },
+  "tulip-fields": {
+    "w": 3840,
+    "h": 2565,
+    "flat": true,
+    "photo": "plates/tulip-fields.jpg",
+    "photoW": 2048,
+    "photoH": 1368,
+    "alt": "Long straight rows of a tulip field beside a canal under a wide sky.",
+    "caption": "Tulip fields in Holland today. The mania ended in 1637. The flowers stayed.",
+    "credit": "Photo: rboed* (Flickr), \"Tulip field in Holland\", 2021, via Wikimedia Commons. CC BY 2.0. Converted to grayscale.",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tulip_field_in_Holland4.jpg"
+  }
+}
